@@ -1,12 +1,24 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
 
-    public array $data = [];
+
     public function index()
     {
-        $this->load->view('index.html');
+        $page = 'content';
+
+        if (!file_exists(APPPATH . 'views/' . $page . '.php')) {
+            show_404();
+        }
+
+        $data['docs'] = $this->Homes->getPosts();
+
+        // print_r($data['docs']);
+
+        $this->load->view('template/header');
+        $this->load->view('index');
+        $this->load->view($page, $data);
+        $this->load->view('template/footer');
     }
 }
