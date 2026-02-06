@@ -1,15 +1,22 @@
 <main class='container mx-auto'>
-    <h2 class='text-center'>EDIT YOUR CONTENT HERE!!!</h2>
+    <h2 class='text-center'>UPDATE YOUR CONTENT HERE!!!</h2>
 
     <section class='my-5 px-5 container-sm'>
-        <form action="Custom/do_upload" method="post" class='form form-group' enctype="multipart/form-data">
+        <?php if(isset($project)): ?>
+            <h3 class="text-center">Editing Project: <?= $project['title'] ?></h3>
+        <?php endif; ?>
+
+        
+        <form action="<?= base_url('Custom/updateProject') ?>" method="post" class='form form-group' enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= $project['id'] ?>">
+
             <!-- Input for title -->
             <label for="title" class='form-label mx-3'>Title</label>
-            <input type="text" name="title" id="title" placeholder='Title' class='form-control mx-3 mb-3'>
+            <input type="text" name="title" id="title" class='form-control mx-3 mb-3' value="<?= $project['title']?>">
 
             <!-- Input for project summary -->
             <label for="summary" class='form-label mx-3'>Project Summary</label>
-            <textarea name="summary" id="summary" cols="30" rows="5" placeholder='Summary' class='form-control mx-3 mb-3'></textarea>
+            <textarea name="summary" id="summary" cols="30" rows="5" class='form-control mx-3 mb-3'><?= $project['summary']?></textarea>
 
             <!-- Separate group for image or thumbnail -->
             <div class='row form-group'>
@@ -19,7 +26,7 @@
                     <small class='form-text text-muted mx-3 mb-3'>Supported formats: JPG, PNG, GIF (Max 5MB)</small>
                 </div>
                 <div class="col d-flex flex-column" style="max-height: 200px; overflow: hidden;">
-                    <img id ='preview' src="" alt="" class="img-fluid" style="max-height: 200px; margin-top: 10px;">
+                    <img id ='preview' src="<?= base_url('assets/images/'.$project['img']) ?>" alt="" class="img-fluid" style="max-height: 200px; margin-top: 10px;">
                 </div>
             </div>
 
@@ -34,9 +41,9 @@
 
             <!-- Input for github link -->
             <label for="link" class="form-label mx-3">Link to Github</label>
-            <input type="text" name="link" class="form-control mx-3 mb-3">
+            <input type="text" name="link" class="form-control mx-3 mb-3" value="<?= $project['link']?>">
 
-            <input type="submit" value="Add Project" class="btn btn-primary d-inline mx-3 my-4 " id="submitBtn">
+            <input type="submit" value="Update Project" class="btn btn-primary d-inline mx-3 my-4 " id="submitBtn">
         </form>
     </section>
 </main>

@@ -20,4 +20,23 @@ class Customs extends CI_Model
         return $query->result_array();
     }
 
+    // Retrieve a specific project by its ID from the database
+    public function getProject($id)
+    {
+        $query = $this->db->get_where('posts', array('id' => $id));
+        return $query->row_array();
+    }
+
+    // Update a project by ID
+    public function updateProject($id, $data)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update('posts', $data);
+    }
+
+    // Delete a project by ID
+    public function deleteProject($id)
+    {
+        return $this->db->delete('posts', array('id' => $id));
+    }
 }
