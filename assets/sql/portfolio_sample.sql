@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2026 at 03:43 PM
+-- Generation Time: Feb 08, 2026 at 07:14 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -43,9 +43,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `summary`, `img`, `tags`, `link`, `created_by`, `updated_by`) VALUES
-(1, 'Core Bringer', 'A rougelike game mixed with coding challenges.', 'Core_Bringer.png', '', 'https://github.com/spo2jake11/Core-Bringer', '2026-02-03 23:21:15', '2026-02-06 22:40:41'),
-(2, 'Core Bringer', 'A rougelike game mixed with coding challenges.', 'Core_Bringer.png', 'Java, LibGDX', 'https://github.com/spo2jake11/Core-Bringer', '2026-02-03 23:21:15', '2026-02-03 23:21:15'),
-(3, 'Banana', 'Ito ay masarap', 'info6.png', 'Ginto', 'kjahsdkjahsjkdads', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(6, 'Core Bringer', 'A rougelike card-based game that mixes gaming with programming. It uses external compiler as a way to compile and run the code.', 'Core_Bringer2.png', 'Java,LibGDX', 'https://github.com/spo2jake11/Core-Bringer', '2026-02-08 14:08:31', '2026-02-08 14:08:31');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +63,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
